@@ -11,7 +11,7 @@ This project consists of the following files:
 - **index.html** - Main HTML entry point for the globe visualization
 - **globe.js** - JavaScript file containing the THREE.js globe logic and animation
 - **styles.css** - Stylesheet for page layout and container styling
-- **cloudflareworkers** - Cloudflare Worker implementation file with fetch handler
+- **cloudflareworkers** - Cloudflare Worker template/boilerplate code (separate from globe functionality)
 
 ## Features
 
