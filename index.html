@@ -54,6 +54,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      cursor: pointer;
     }
 
     .nav-links {
@@ -75,6 +76,16 @@
     .nav-links a:hover {
       opacity: 1;
       color: #4ea0ff;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
     }
 
     /* Hero Content Widget */
@@ -352,8 +363,25 @@
         padding: 1rem 1.5rem;
       }
 
+      .mobile-menu-btn {
+        display: block;
+      }
+
       .nav-links {
-        display: none;
+        position: fixed;
+        top: 4rem;
+        right: -100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 2rem;
+        border-radius: 8px;
+        transition: right 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-links.active {
+        right: 1.5rem;
       }
 
       .hero-title {
@@ -392,13 +420,12 @@
 
   <!-- Header/Navigation Widget -->
   <header class="header">
-    <div class="logo">LUKAIRO</div>
+    <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">LUKAIRO</div>
     <nav>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Toggle menu">☰</button>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
+        <li><a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Home</a></li>
         <li><a href="#features">Features</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -411,8 +438,8 @@
       Powered by cutting-edge technology and real-time data.
     </p>
     <div class="cta-buttons">
-      <a href="#features" class="btn btn-primary">Get Started</a>
-      <a href="#about" class="btn btn-secondary">Learn More</a>
+      <a href="#features" class="btn btn-primary">Explore Features</a>
+      <a href="#features" class="btn btn-secondary">Learn More</a>
     </div>
   </section>
 
@@ -492,10 +519,8 @@
   <footer class="footer">
     <div class="footer-content">
       <ul class="footer-links">
-        <li><a href="#privacy">Privacy</a></li>
-        <li><a href="#terms">Terms</a></li>
-        <li><a href="#support">Support</a></li>
-        <li><a href="#api">API</a></li>
+        <li><a href="https://github.com/STR8AI/lukairo-globe">GitHub</a></li>
+        <li><a href="#features">Features</a></li>
       </ul>
       <p class="footer-text">© 2025 Lukairo. All rights reserved. Built with THREE.js and love.</p>
     </div>
