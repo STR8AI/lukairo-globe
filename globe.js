@@ -2,12 +2,12 @@ const container = document.getElementById('lukairo-hero');
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000000);
 
-const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.set(0, 0, 6);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.setSize(window.innerWidth, window.innerHeight);
 container.appendChild(renderer.domElement);
 
 // Soft fill light with a rim highlight.
@@ -69,10 +69,9 @@ function animate(now = performance.now()) {
 }
 
 function handleResize() {
-  const { clientWidth, clientHeight } = container;
-  camera.aspect = clientWidth / clientHeight;
+  camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(clientWidth, clientHeight);
+  renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
 window.addEventListener('resize', handleResize);
