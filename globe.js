@@ -34,8 +34,8 @@ scene.add(dirLight);
 
 // Globe with a subtle shine.
 const loader = new THREE.TextureLoader();
-const earthTexture = loader.load('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg');
-const bumpMap = loader.load('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png');
+const earthTexture = loader.load('./images/earth-blue-marble.jpg');
+const bumpMap = loader.load('./images/earth-topology.png');
 const globe = new THREE.Mesh(
   new THREE.SphereGeometry(2, 64, 64),
   new THREE.MeshPhongMaterial({
